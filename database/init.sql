@@ -45,6 +45,7 @@ CREATE TABLE order_items (
     unit_price NUMERIC(10,2) NOT NULL CHECK (unit_price >= 0)
 );
 
+
 CREATE INDEX idx_customers_region_id ON customers (region_id);
 CREATE INDEX idx_orders_customer_id ON orders (customer_id);
 CREATE INDEX idx_order_items_order_id ON order_items (order_id);
