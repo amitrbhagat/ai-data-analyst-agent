@@ -5,7 +5,6 @@ import pandas as pd;
 from sqlalchemy.orm import sessionmaker;
 
 
-
 load_dotenv()
 
 database_url = os.getenv("DATABASE_URL")
