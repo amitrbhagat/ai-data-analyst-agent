@@ -2,7 +2,7 @@
 ## where our rest of the application is going to connect with AI model (LLM) through this abstraction layer
 
 
-from ollama import generate_response
+from app.llm.ollama import generate_response
 
 
 prompt = """

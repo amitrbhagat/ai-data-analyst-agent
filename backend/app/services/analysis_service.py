@@ -3,7 +3,6 @@ import pandas as pd
 from app.database.connection import engine
 
 
-
 def get_total_revenue():
     query = """
         SELECT
