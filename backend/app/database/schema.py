@@ -67,6 +67,6 @@ Important:
 
 """
 
-if __name__ == "__main__":
-    res = get_schema_description()
-    print(res);
+# if __name__ == "__main__":
+#     res = get_schema_description()
+#     print(res);

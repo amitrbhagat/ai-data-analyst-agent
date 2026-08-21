@@ -16,7 +16,7 @@ def provide_response(prompt: str, temperature: float = 0.7) -> str:
     return response
 
 
-if __name__ == "__main__":
-    res = provide_response(prompt, temperature=0.3)
-    print("-----------------------------------------")
-    print(res)
+# if __name__ == "__main__":
+#     res = provide_response(prompt, temperature=0.3)
+#     print("-----------------------------------------")
+#     print(res)

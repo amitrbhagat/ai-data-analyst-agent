@@ -15,7 +15,10 @@ def generate_response(prompt:str, temperature: float = 0.7) -> str:
         "options": {
             "temperature": temperature
         },
-        "stream":False
+
+        "stream":False,
+
+        "format":"json"
     }
 
 
