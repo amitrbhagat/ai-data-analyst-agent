@@ -129,7 +129,7 @@ def _has_limit(sql: str) -> bool:
     return bool(re.search(r"\bLIMIT\s+\d+\b", sql, re.IGNORECASE))
 
 
-def validate_sql(sql: str) -> ValidationResult:
+def validate_sql(sql: str) -> ValidationResult: 
     """
     Validate LLM-generated SQL before execution.
 
