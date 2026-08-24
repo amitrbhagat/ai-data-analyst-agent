@@ -39,6 +39,33 @@ def generate_response(prompt:str, temperature: float = 0.7) -> str:
         return ""
 
 
+
+
+OLLAMA_BASE_URL = "http://localhost:11434"
+
+def generate_embedding(text: str) -> list[float]:
+    """
+    Generate an embedding vector using Ollama.
+    """
+
+    response = requests.post(
+        f"{OLLAMA_BASE_URL}/api/embed",
+        json={
+            "model": "nomic-embed-text",
+            "input": text,
+        },
+        timeout=60,
+    )
+
+    response.raise_for_status()
+
+    data = response.json()
+    
+    return data["embeddings"][0]
+
+
+
+
 # if __name__ == "__main__":
 
 #     my_prompt = """
