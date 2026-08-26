@@ -26,36 +26,19 @@ def get_vector_store():
 
 
 
-def add_documents(chunks: list[str], embeddings: list[list[float]], source_filename: str,):
-
-    if not chunks:
-        return
-
-    if len(chunks) != len(embeddings):
-        raise ValueError(
-            "Number of chunks must match number of embeddings."
-        )
-
+def add_documents(
+    chunks: list[str],
+    embeddings: list[list[float]],
+    metadatas: list[dict],
+    ids: list[str],
+):
     collection = get_vector_store()
 
-    ids = [
-        f"{source_filename}_{index}"
-        for index in range(len(chunks))
-    ]
-
-    metadatas = [
-        {
-            "source_filename": source_filename,
-            "chunk_index": index,
-        }
-        for index in range(len(chunks))
-    ]
-
     collection.add(
-        ids = ids,
-        embeddings = embeddings,
-        documents = chunks,
-        metadatas = metadatas,
+        ids=ids,
+        documents=chunks,
+        embeddings=embeddings,
+        metadatas=metadatas,
     )
 
 
