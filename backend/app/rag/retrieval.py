@@ -4,7 +4,8 @@ from app.rag.vector_store import get_vector_store
 
 def retrieve_relevant_chunks(
     query: str,
-    top_k: int = 3
+    top_k: int = 3,
+    distance_threshold: float = 3.0,
 ) -> list[dict]:
     """
     Retrieve the most relevant policy chunks for a user query.
@@ -30,6 +31,10 @@ def retrieve_relevant_chunks(
         metadatas,
         distances
     ):
+        
+        if distance > distance_threshold:
+            continue
+
         retrieved_chunks.append(
             {
                 "text": document,

@@ -5,7 +5,8 @@ question = "What is the refund period for an eligible product?"
 
 results = retrieve_relevant_chunks(
     question,
-    top_k=3
+    top_k=3,
+    distance_threshold = 3.0
 )
 
 print("\n===== RETRIEVAL RESULTS =====\n")
