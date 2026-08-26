@@ -27,4 +27,3 @@ def get_embeddings(texts: list[str]) -> list[list[float]]:
         embeddings.append(get_embedding(text))
 
     return embeddings
-
