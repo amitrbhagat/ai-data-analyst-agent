@@ -1,13 +1,12 @@
 from langgraph.graph import StateGraph, START, END
-
 from app.agents.state import State
-
 from app.agents.nodes.question_analyzer import question_analyzer_node
 from app.agents.nodes.intent_router import intent_router_node
 from app.agents.nodes.sql_pipeline_node import sql_pipeline_node
 from app.agents.nodes.rag_retriever import rag_retriever_node
 from app.agents.nodes.synthesis import synthesis_node
 from app.agents.nodes.answer_generator import answer_generator_node
+
 
 
 def route_intent(state: State) -> str:
@@ -46,10 +45,7 @@ def route_after_rag(state: State) -> str:
 builder = StateGraph(State)
 
 
-# -----------------------------
-# Add Nodes
-# -----------------------------
-
+# Nodes
 builder.add_node(
     "question_analyzer",
     question_analyzer_node
@@ -81,10 +77,7 @@ builder.add_node(
 )
 
 
-# -----------------------------
-# Initial Flow
-# -----------------------------
-
+# Start
 builder.add_edge(
     START,
     "question_analyzer"
@@ -96,10 +89,7 @@ builder.add_edge(
 )
 
 
-# -----------------------------
-# Intent Routing
-# -----------------------------
-
+# Intent routing
 builder.add_conditional_edges(
     "intent_router",
     route_intent,
@@ -111,10 +101,7 @@ builder.add_conditional_edges(
 )
 
 
-# -----------------------------
-# SQL Routing
-# -----------------------------
-
+# SQL routing
 builder.add_conditional_edges(
     "sql_pipeline",
     route_after_sql,
@@ -125,10 +112,7 @@ builder.add_conditional_edges(
 )
 
 
-# -----------------------------
-# RAG Routing
-# -----------------------------
-
+# RAG routing
 builder.add_conditional_edges(
     "rag_retriever",
     route_after_rag,
@@ -139,20 +123,14 @@ builder.add_conditional_edges(
 )
 
 
-# -----------------------------
-# Hybrid Synthesis
-# -----------------------------
-
+# Hybrid synthesis
 builder.add_edge(
     "synthesis",
     "answer_generator"
 )
 
 
-# -----------------------------
-# Final
-# -----------------------------
-
+# End
 builder.add_edge(
     "answer_generator",
     END
@@ -160,3 +138,4 @@ builder.add_edge(
 
 
 graph = builder.compile()
+
