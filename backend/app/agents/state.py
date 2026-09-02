@@ -6,14 +6,18 @@ class State(TypedDict):
     question: str
     conversation_history = list
     intent:str
-
     database_schema:str
+
     generated_sql:Optional[str]
     sql_validation_result: Optional[str]
     sql_error:Optional[str]
     query_result:Optional[str]
 
     retrieved_documents:Optional[list]
+    rag_answer: str|None
+    synthesis_answer: str|None
+
+
     data_summary:Optional[str]
     analysis:Optional[dict]
 
