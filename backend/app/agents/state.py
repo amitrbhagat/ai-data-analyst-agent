@@ -15,6 +15,8 @@ class State(TypedDict):
 
     retrieved_documents:Optional[list]
     rag_answer: str|None
+
+    hybrid_answer: str|None
     synthesis_answer: str|None
 
 
