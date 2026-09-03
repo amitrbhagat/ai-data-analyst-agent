@@ -6,6 +6,8 @@ from app.llm.provider import provide_response
 
 
 def synthesis_node(state: State) -> dict:
+    print("[NODE] synthesis")
+
     question = state["question"]
     query_result = state["query_result"]
     rag_answer = state["rag_answer"]

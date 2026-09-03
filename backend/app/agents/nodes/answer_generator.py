@@ -2,6 +2,7 @@ from app.agents.state import State
 
 
 def answer_generator_node(state: State) -> dict:
+    print("[NODE] answer_generator")
 
     intent = state["intent"].upper()
 

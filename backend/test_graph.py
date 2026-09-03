@@ -29,4 +29,6 @@ initial_state = {
 result = graph.invoke(initial_state)
 
 print("Intent:", result["intent"])
-print("Final Answer:", result["final_answer"])
+print("Result keys:", result.keys())
+print("Final Answer:", result.get("final_answer"))
+

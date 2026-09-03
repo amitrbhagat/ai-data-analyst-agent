@@ -3,6 +3,7 @@ from app.services.routing_service import classify_intent
 
 
 def intent_router_node(state: State) -> dict:
+    print("[NODE] intent router")
 
     question = state["question"]
 
