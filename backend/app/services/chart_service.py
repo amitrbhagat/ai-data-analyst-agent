@@ -11,7 +11,7 @@ def decide_chart(query_result: list[dict]) -> dict:
 
     #  Date / month column -> Line chart
 
-    date_key = None
+    date_key = None   
 
     for key in first_row.keys():
         key_lower = key.lower()
